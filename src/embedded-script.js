@@ -1,8 +1,14 @@
+function hideUnnecessaryRegion(){
+    $(".fullContainer.autodesk").hide();
+    $(".fullContainer.imgHolder").hide();
+    $("#sticky_navigation").hide();
+}
+
 function adjustContentSize() {
     $('.fusion-ref-expander-bottom-space').remove();
 
     var w_height = $(window).height();
-    var content_heght = w_height - 257;  // subtract header size
+    var content_heght = w_height;
     var $bottom_space = $("<div>");
     $bottom_space.addClass('fusion-ref-expander-bottom-space');
     $bottom_space.height(100);
@@ -25,6 +31,7 @@ function main() {
     console.log(location.href);
     if(location.href.indexOf('fusion360.autodesk.com/learning/learning.html') != -1) {
         console.log('This website is autodesk reference website.');
+        hideUnnecessaryRegion();
         adjustContentSize();
 
         $(window).resize(function(){
